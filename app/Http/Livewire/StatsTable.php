@@ -58,7 +58,6 @@ class StatsTable extends \RamonRietdijk\LivewireTables\Http\Livewire\LivewireTab
             Column::make(__('pass yds'), 'passing_yards')
                 ->sortable(),
             Column::make(__('yds/att'), 'passing_average')->sortable(),
-            Column::make(__('QBR'), 'passing_qbr')->sortable(),
 
             Column::make(__('Rec'), 'receiving_catches')
                 ->sortable(),
