@@ -73,7 +73,7 @@ class HomepageController extends Controller
         return view('team', [
             'team' => $team,
             'devyPlayers' => $devyPlayers,
-            'week' => $request->query('week', 2)
+            'week' => $request->query('week', 3)
         ]);
     }
 

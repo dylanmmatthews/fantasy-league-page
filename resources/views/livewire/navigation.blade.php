@@ -32,22 +32,13 @@
         <div class="hidden w-full md:block md:w-auto" id="navbar-default">
             <ul
                 class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                @foreach ($weeks as $week)
                 <li>
-                    <a href="{{ url()->current() . '?' . http_build_query(array_merge(request()->all(), ['week' => 'season'])) }}"
+                    <a href="{{ url()->current() . '?' . http_build_query(array_merge(request()->all(), ['week' => $week])) }}"
                         class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-                        aria-current="page">Season stats (coming soon...)</a>
+                        aria-current="page">Week {{ $week }} stats</a>
                 </li>
-                <li>
-                    <a href="{{ url()->current() . '?' . http_build_query(array_merge(request()->all(), ['week' => 1])) }}"
-                        class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-                        aria-current="page">Week 1 stats</a>
-                </li>
-                <li>
-                    <strong><a
-                            href="{{ url()->current() . '?' . http_build_query(array_merge(request()->all(), ['week' => 2])) }}"
-                            class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-                            aria-current="page">Week 2 stats</a></strong>
-                </li>
+                @endforeach
             </ul>
         </div>
     </div>

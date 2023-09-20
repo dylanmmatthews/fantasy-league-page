@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Libraries\Sleeper\SleeperClient;
 use App\Models\LeagueTeam;
+use App\Models\WeeklyDevyStats;
 use Livewire\Component;
 
 class Navigation extends Component
@@ -21,6 +22,10 @@ class Navigation extends Component
         $leagueId = '917931648921157632';
         $league = $sleeperApi->league($leagueId);
         $leagueTeams = LeagueTeam::all();
-        return view('livewire.navigation', ['league' => $league, 'teams' => $leagueTeams]);
+        return view('livewire.navigation', [
+            'league' => $league,
+            'teams' => $leagueTeams,
+            'weeks' => WeeklyDevyStats::query()->get()->pluck('week', 'week')->toArray()
+        ]);
     }
 }
