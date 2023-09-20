@@ -87,6 +87,7 @@ class HomepageController extends Controller
 
     public function stats()
     {
+        
         return view('stats');
     }
 }
